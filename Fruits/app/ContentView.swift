@@ -2,20 +2,19 @@
 //  ContentView.swift
 //  Fruits
 //
-//  Created by Ahmed Ezz on 22/09/2023.
+//  Created by Ahmed Ezz on 01/10/2023.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(.onBoarding) private var showOnBoarding: Bool = true
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        if !showOnBoarding {
+            FruitList()
+        } else {
+            OnBoarding()
         }
-        .padding()
     }
 }
 
